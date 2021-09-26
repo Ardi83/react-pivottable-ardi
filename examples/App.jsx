@@ -17,7 +17,7 @@ class PivotTableUISmartWrapper extends React.PureComponent {
         this.state = {pivotState: props};
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({pivotState: nextProps});
     }
 
@@ -38,7 +38,7 @@ class PivotTableUISmartWrapper extends React.PureComponent {
 }
 
 export default class App extends React.Component {
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.setState({
             mode: 'demo',
             filename: 'Sample Dataset: Tips',

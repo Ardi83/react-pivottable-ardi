@@ -166,6 +166,7 @@ export class DraggableAttribute extends React.Component {
 
 DraggableAttribute.defaultProps = {
   valueFilter: {},
+  attrValues: {}
 };
 
 DraggableAttribute.propTypes = {
@@ -245,8 +246,11 @@ class PivotTableUI extends React.PureComponent {
     this.materializeInput(this.props.data);
   }
 
-  componentDidUpdate() {
-    this.materializeInput(this.props.data);
+  componentDidUpdate(prevProps) {
+    if (this.props.data !== prevProps.data) {
+      console.log(prevProps, this.props);
+      this.materializeInput(this.props.data);
+    }
   }
 
   materializeInput(nextData) {
